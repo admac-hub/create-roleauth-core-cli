@@ -1,0 +1,33 @@
+{
+  "name": "@admac-hub/create-roleauth-core-cli",
+  "version": "1.0.1",
+  "description": "Interactive CLI to scaffold a full-stack MERN role-based auth app with Google OAuth and .env setup.",
+  "main": "bin/index.js",
+  "bin": {
+    "create-roleauth-core-cli": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/admac-hub/create-roleauth-core-cli.git"
+  },
+  "author": "Dev Ardit Cuko",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "mern",
+    "auth",
+    "cli",
+    "starter",
+    "role-based",
+    "google-oauth",
+    "npx",
+    "fullstack",
+    "scaffold"
+  ],
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "inquirer": "^9.2.6" 
+  }
+}
