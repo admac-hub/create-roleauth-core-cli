@@ -1,6 +1,6 @@
 {
   "name": "@admac-hub/create-roleauth-core-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Interactive CLI to scaffold a full-stack MERN role-based auth app with Google OAuth and .env setup.",
   "main": "bin/index.js",
   "bin": {

@@ -14,8 +14,7 @@ const { execSync } = require('child_process');
     process.exit(1);
   }
 
-  const currentPath = process.cwd();
-  const targetPath = path.join(currentPath, projectName);
+  const targetPath = path.resolve(projectName);
   const templatePath = path.join(__dirname, '../template');
 
   console.log(`📁 Creating project at: ${targetPath}`);
@@ -98,11 +97,17 @@ const { execSync } = require('child_process');
     fs.writeFileSync(backendEnvPath, backendEnvText);
     console.log("✅ .env file created at: backend/.env");
 
-    // 4. Write frontend .env
+    // 4. Write frontend .env (safely)
+    const webclientDir = path.join(targetPath, 'webclient');
+    const frontendEnvPath = path.join(webclientDir, '.env');
     const frontendEnvText = `REACT_APP_API_BASE_URL=${envAnswers.REACT_APP_API_BASE_URL}`;
-    const frontendEnvPath = path.join(targetPath, 'webclient', '.env');
-    fs.writeFileSync(frontendEnvPath, frontendEnvText);
-    console.log("✅ .env file created at: webclient/.env");
+
+    if (fs.existsSync(webclientDir)) {
+      fs.writeFileSync(frontendEnvPath, frontendEnvText);
+      console.log("✅ .env file created at: webclient/.env");
+    } else {
+      console.warn("⚠️ Warning: webclient/ folder not found. Skipping frontend .env generation.");
+    }
 
     // 5. Install backend dependencies
     console.log("\n📦 Installing backend dependencies...");
@@ -122,7 +127,11 @@ const { execSync } = require('child_process');
     console.log("\n✅ All set! Start your app with:");
     console.log(`   cd ${projectName}`);
     console.log(`   npm run dev`);
-    console.log("\n🧠 Remember to update any production credentials before going live.");
+
+    console.log(`\n🌟 Thank you for using this CLI!`);
+    console.log(`👉 Give it a ⭐ on GitHub: https://github.com/admac-hub/create-roleauth-core-cli`);
+    console.log(`📸 Follow on Instagram: https://www.instagram.com/codeoncouch/?next=%2F`);
+    console.log(`\n🧠 Remember to update any production credentials before going live.`);
 
   } catch (err) {
     console.error("❌ Error:", err);
