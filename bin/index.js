@@ -114,6 +114,7 @@ const { execSync } = require('child_process');
     execSync("npm install", {
       cwd: path.join(targetPath, "backend"),
       stdio: "inherit",
+      shell: true // ✅ Cross-platform safe
     });
 
     // 6. Install frontend dependencies
@@ -121,6 +122,7 @@ const { execSync } = require('child_process');
     execSync("npm install", {
       cwd: path.join(targetPath, "webclient"),
       stdio: "inherit",
+      shell: true // ✅ Cross-platform safe
     });
 
     // 7. Final message
