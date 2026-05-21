@@ -13,3 +13,23 @@ Production-ready MERN authentication starter with:
 ✅ Cookie Authentication  
 
 Generate a full auth system in seconds.
+📦 Installation
+npm install -g @admac-hub/create-roleauth-core-cli
+
+or
+
+npx @admac-hub/create-roleauth-core-cli
+🚀 Quick Start
+npx @admac-hub/create-roleauth-core-cli my-app
+cd my-app
+npm install
+
+Run backend:
+
+cd backend
+npm run dev
+
+Run frontend:
+
+cd frontend
+npm run dev
